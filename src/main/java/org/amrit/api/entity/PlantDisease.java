@@ -1,17 +1,60 @@
 package org.amrit.api.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "plant_disease")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class PlantDisease {
-    private int id;
-    private String label, stageOfInfection, partOfThePlant, ifLeaf, farm, location, image, comments;
-    private Double temperature, humidity, rateOfOccurance;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "label")
+    private String label;
+
+    @Column(name = "stage_of_infection")
+    private String stageOfInfection;
+
+    @Column(name = "part_of_the_plant")
+    private String partOfThePlant;
+
+    @Column(name = "if_leaf")
+    private String ifLeaf;
+
+    @Column(name = "farm")
+    private String  farm;
+
+    @Column(name = "location")
+    private String location;
+
+    @Column(name = "image")
+    private String image;
+
+    @Column(name = "comments")
+    private String comments;
+
+    @Column(name = "temperature")
+    private double temperature;
+
+    @Column(name = "humidity")
+    private double humidity;
+
+    @Column(name = "rate_of_occurrence")
+    private double rateOfOccurrence;
+
+    @Column(name = "date")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date date;
 
     public PlantDisease() {
     }
 
-    public PlantDisease(int id, String label, String stageOfInfection, String partOfThePlant, String ifLeaf, String farm, String location, String image, String comments, Double temperature, Double humidity, Double rateOfOccurance, Date date) {
+    public PlantDisease(Long id, String label, String stageOfInfection, String partOfThePlant, String ifLeaf, String farm, String location, String image, String comments, double temperature, double humidity, double rateOfOccurrence, Date date) {
         this.id = id;
         this.label = label;
         this.stageOfInfection = stageOfInfection;
@@ -23,15 +66,15 @@ public class PlantDisease {
         this.comments = comments;
         this.temperature = temperature;
         this.humidity = humidity;
-        this.rateOfOccurance = rateOfOccurance;
+        this.rateOfOccurrence = rateOfOccurrence;
         this.date = date;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -99,28 +142,28 @@ public class PlantDisease {
         this.comments = comments;
     }
 
-    public Double getTemperature() {
+    public double getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(Double temperature) {
+    public void setTemperature(double temperature) {
         this.temperature = temperature;
     }
 
-    public Double getHumidity() {
+    public double getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(Double humidity) {
+    public void setHumidity(double humidity) {
         this.humidity = humidity;
     }
 
-    public Double getRateOfOccurance() {
-        return rateOfOccurance;
+    public double getRateOfOccurrence() {
+        return rateOfOccurrence;
     }
 
-    public void setRateOfOccurance(Double rateOfOccurance) {
-        this.rateOfOccurance = rateOfOccurance;
+    public void setRateOfOccurrence(double rateOfOccurrence) {
+        this.rateOfOccurrence = rateOfOccurrence;
     }
 
     public Date getDate() {

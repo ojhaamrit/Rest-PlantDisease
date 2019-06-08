@@ -3,17 +3,16 @@ package org.amrit.api.service;
 import org.amrit.api.entity.PlantDisease;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface PlantDiseaseService {
 
     List<PlantDisease> getAll();
 
-    void save(PlantDisease plantDisease);
+    PlantDisease save(PlantDisease plantDisease);
 
-    void delete(int id);
+    void delete(Long id);
 
-    void update(PlantDisease plantDisease);
-
-    PlantDisease getById(int id);
+    Optional<PlantDisease> getById(Long id);
 
 }
