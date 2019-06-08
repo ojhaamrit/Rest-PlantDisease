@@ -2,52 +2,67 @@ package org.amrit.api.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "plant_disease")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class PlantDisease {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    @JsonProperty("id")
     private Long id;
 
     @Column(name = "label")
+    @JsonProperty("label")
     private String label;
 
     @Column(name = "stage_of_infection")
+    @JsonProperty("stage_of_infection")
     private String stageOfInfection;
 
     @Column(name = "part_of_the_plant")
+    @JsonProperty("part_of_the_plant")
     private String partOfThePlant;
 
     @Column(name = "if_leaf")
+    @JsonProperty("if_leaf")
     private String ifLeaf;
 
     @Column(name = "farm")
+    @JsonProperty("farm")
     private String  farm;
 
     @Column(name = "location")
+    @JsonProperty("location")
     private String location;
 
     @Column(name = "image")
+    @JsonProperty("image")
     private String image;
 
     @Column(name = "comments")
+    @JsonProperty("comments")
     private String comments;
 
     @Column(name = "temperature")
+    @JsonProperty("temperature")
     private double temperature;
 
     @Column(name = "humidity")
+    @JsonProperty("humidity")
     private double humidity;
 
     @Column(name = "rate_of_occurrence")
+    @JsonProperty("rate_of_occurrence")
     private double rateOfOccurrence;
 
     @Column(name = "date")
+    @JsonProperty("date")
     @JsonFormat(pattern="yyyy-MM-dd")
     private Date date;
 
