@@ -34,7 +34,7 @@ public class PlantDiseaseController {
         return plantDiseaseService.save(plantDisease);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<PlantDisease> update(@PathVariable Long id, @RequestBody PlantDisease plantDisease) {
         if (plantDisease.getId() == null || !plantDisease.getId().equals(id)) {
             return ResponseEntity.badRequest().build();
@@ -46,7 +46,7 @@ public class PlantDiseaseController {
 
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         plantDiseaseService.delete(id);
         return ResponseEntity.ok().build();
