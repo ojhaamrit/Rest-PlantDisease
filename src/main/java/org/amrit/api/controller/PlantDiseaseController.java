@@ -16,7 +16,7 @@ public class PlantDiseaseController {
     @Autowired
     private PlantDiseaseService plantDiseaseService;
 
-    @GetMapping
+    @GetMapping(value = "/getall")
     public List<PlantDisease> getAll() {
         return plantDiseaseService.getAll();
     }
@@ -29,7 +29,7 @@ public class PlantDiseaseController {
 
     }
 
-    @PostMapping
+    @PostMapping(value = "/save")
     public PlantDisease create(@RequestBody PlantDisease plantDisease) {
         return plantDiseaseService.save(plantDisease);
     }
